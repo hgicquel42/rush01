@@ -15,12 +15,13 @@ int	main(int argc, char **argv)
 		return (ft_main_err());
 	if (!ft_split(argv[1], &tab))
 		return (ft_main_err());
+	ft_fill(&tab);
 	int x = 0;
 	while (x < 4)
 	{
 		int y = 0;
 		while (y < tab.size)
-			printf("%d,", tab.outer[x][y++]);
+			printf("%d,", tab.inner[x][y++]);
 		printf("\n");
 		x++;
 	}

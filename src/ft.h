@@ -1,6 +1,11 @@
 #ifndef FT_H
 # define FT_H
 
+# define TOP 0
+# define BOTTOM 1
+# define LEFT 2
+# define RIGHT 3
+
 typedef struct s_tab
 {
 	int	**outer;
@@ -9,6 +14,8 @@ typedef struct s_tab
 }	t_tab;
 
 int		ft_split(char *str, t_tab *tab);
+
+int		ft_fill(t_tab *tab);
 
 void	ft_putstr(char	*str);
 
