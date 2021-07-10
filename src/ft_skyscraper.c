@@ -7,6 +7,22 @@ int	ft_main_err(void)
 	return (1);
 }
 
+void	ft_puttab(t_tab *tab)
+{
+	int	x;
+	int	y;
+	
+	y = 0;
+	while (y < tab->size)
+	{
+		x = 0;
+		while (x < tab->size)
+			printf("%d ", tab->inner[x++][y]);  
+		printf("\n");
+		y++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_tab	tab;
@@ -16,14 +32,6 @@ int	main(int argc, char **argv)
 	if (!ft_split(argv[1], &tab))
 		return (ft_main_err());
 	ft_fill(&tab);
-	int x = 0;
-	while (x < 4)
-	{
-		int y = 0;
-		while (y < tab.size)
-			printf("%d,", tab.inner[x][y++]);
-		printf("\n");
-		x++;
-	}
+	ft_puttab(&tab);
 	return (0);
 }
