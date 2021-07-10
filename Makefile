@@ -3,7 +3,7 @@ NAME = rush-01
 all: ${NAME}
 
 ${NAME}:
-	gcc src/*.c -I src/ft.h -o ${NAME}
+	cc src/*.c -o ${NAME}
 
 clean:
 	rm ${NAME}
