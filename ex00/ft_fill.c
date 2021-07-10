@@ -1,8 +1,5 @@
 #include "ft.h"
 
-// REMOVE
-#include <stdio.h>
-
 typedef struct s_pos
 {
 	int	x;
@@ -29,14 +26,6 @@ t_pos ft_pos_rel(int face, int index, int i, int max)
 	if (face == RIGHT)
 		return (ft_pos_abs(max - 1 - i, index));
 	return (ft_pos_abs(0, 0));
-}
-
-int	*ft_pos2(t_tab *tab, int face, int index, int i)
-{
-	t_pos	pos;
-	
-	pos = ft_pos_rel(face, index, i, tab->size);
-	return &(tab->inner[pos.x][pos.y]);
 }
 
 void	ft_fill_line(t_tab *tab, int face, int index)
@@ -93,10 +82,7 @@ int	ft_fill(t_tab *tab)
 	{
 		y = 0;
 		while (y < tab->size)
-		{
-			tab->inner[x][y] = 0;
-			y++;
-		}
+			tab->inner[x][y++] = 0;
 		x++;
 	}
 	if (!ft_fill_face(tab, TOP, BOTTOM))
