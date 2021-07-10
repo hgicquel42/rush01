@@ -19,7 +19,8 @@ int	main(int argc, char **argv)
 		return (ft_main_err());
 	ft_fill(&tab);
 	ft_puttab(&tab);
-	ft_solve(&tab, 0);
+	if (ft_solve(&tab, 0))
+		ft_puttab(&tab);
 	// ft_free(&tab);
 	return (0);
 }

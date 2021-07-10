@@ -56,17 +56,17 @@ int	ft_fill_face(t_tab *tab, int face, int opposite)
 		m = tab->outer[opposite][index];
 		if (n + m > tab->size + 1)
 			return (0);
-		if (n == tab->size)
-		{
-			if (m != 1)
-				return (0);
-			ft_fill_line(tab, face, index);	
-		}
-		if (n == 1)
-		{
-			pos = ft_pos_rel(face, index, 0, tab->size);
-			tab->inner[pos.x][pos.y] = tab->size;
-		}
+		// if (n == tab->size)
+		// {
+		// 	if (m != 1)
+		// 		return (0);
+		// 	ft_fill_line(tab, face, index);	
+		// }
+		// if (n == 1)
+		// {
+		// 	pos = ft_pos_rel(face, index, 0, tab->size);
+		// 	tab->inner[pos.x][pos.y] = tab->size;
+		// }
 		index++;
 	}
 	return (1);

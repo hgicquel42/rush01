@@ -3,7 +3,7 @@ NAME = rush-01
 all: ${NAME}
 
 ${NAME}:
-	cc src/*.c -o ${NAME}
+	cc *.c -o ${NAME}
 
 clean:
 	rm ${NAME}
