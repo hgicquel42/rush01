@@ -74,14 +74,14 @@ int	ft_solve(t_tab *tab, int n)
 	i = 0;
 	x = n % tab->size;
 	y = n / tab->size;
-	while (++i < tab->size)
+	while (i < tab->size)
 	{
 		printf("i = %d, n = %d, x = %d, y = %d\n", i, n, x, y);
 		t = tab->inner[x][y];
-		tab->inner[x][y] = i;
+		tab->inner[x][y] = i + 1;
+		ft_puttab(tab);
 		if (ft_valid(tab, x, y))
 		{
-			ft_puttab(tab);
 			printf("valid\n");
 			if (ft_solve(tab, n + 1))
 				return (1);
@@ -91,7 +91,7 @@ int	ft_solve(t_tab *tab, int n)
 			printf("not valid\n");
 		}
 		tab->inner[x][y] = t;
-		//i++;
+		i++;
 	}
 	return (0);
 }
