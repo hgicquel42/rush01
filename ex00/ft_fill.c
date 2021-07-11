@@ -1,53 +1,22 @@
 #include "ft.h"
 
-typedef struct s_pos
-{
-	int	x;
-	int	y;
-}	t_pos;
-
-t_pos	ft_pos_abs(int x, int y)
-{
-	t_pos pos;
-
-	pos.x = x;
-	pos.y = y;
-	return (pos);
-}
-
-t_pos ft_pos_rel(int face, int index, int i, int max)
-{
-	if (face == TOP)
-		return (ft_pos_abs(index, i));
-	if (face == BOTTOM)
-		return (ft_pos_abs(index, max - 1 - i));
-	if (face == LEFT)
-		return (ft_pos_abs(i, index));
-	if (face == RIGHT)
-		return (ft_pos_abs(max - 1 - i, index));
-	return (ft_pos_abs(0, 0));
-}
-
 void	ft_fill_line(t_tab *tab, int face, int index)
 {
-	int	i;
-	t_pos pos;
+	int		i;
 
 	i = 0;
 	while (i < tab->size)
 	{
-		t_pos pos = ft_pos_rel(face, index, i, tab->size);
-		tab->inner[pos.x][pos.y] = i + 1;
+		*ft_get_pos(tab, face, index, i) = i + 1;
 		i++;
 	}
 }
 
 int	ft_fill_face(t_tab *tab, int face, int opposite)
 {
-	int index;
-	t_pos	pos;
-	int	n;
-	int	m;
+	int		index;
+	int		n;
+	int		m;
 
 	index = 0;
 	while (index < tab->size)
@@ -60,13 +29,10 @@ int	ft_fill_face(t_tab *tab, int face, int opposite)
 		{
 			if (m != 1)
 				return (0);
-			ft_fill_line(tab, face, index);	
+			ft_fill_line(tab, face, index);
 		}
 		if (n == 1)
-		{
-			pos = ft_pos_rel(face, index, 0, tab->size);
-			tab->inner[pos.x][pos.y] = tab->size;
-		}
+			*ft_get_pos(tab, face, index, 0) = tab->size;
 		index++;
 	}
 	return (1);

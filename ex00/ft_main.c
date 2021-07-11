@@ -1,8 +1,5 @@
 #include "ft.h"
 
-// REMOVE
-#include <stdio.h>
-
 int	ft_main_err(void)
 {
 	ft_puterr("Error\n");
@@ -18,9 +15,9 @@ int	main(int argc, char **argv)
 	if (!ft_split(argv[1], &tab))
 		return (ft_main_err());
 	ft_fill(&tab);
+	if (!ft_solve(&tab, 0))
+		return (ft_main_err());
 	ft_puttab(&tab);
-	if (ft_solve(&tab, 0))
-		ft_puttab(&tab);
-	// ft_free(&tab);
+	ft_free(&tab);
 	return (0);
 }

@@ -4,7 +4,7 @@
 int	ft_alloc_inner(t_tab *tab)
 {
 	int	i;
-	
+
 	tab->inner = malloc(tab->size * sizeof(int *));
 	if (!tab->inner)
 		return (0);
@@ -68,7 +68,6 @@ int	ft_split2(char *str, int length, t_tab *tab)
 
 int	ft_split(char *str, t_tab *tab)
 {
-	int		i;
 	int		length;
 	int		count;
 

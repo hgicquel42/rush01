@@ -1,9 +1,5 @@
 #include "ft.h"
 
-// REMOVE
-#include <unistd.h>
-#include <stdio.h>
-
 int	ft_count_y_downward(t_tab *tab, int x)
 {
 	int	i;

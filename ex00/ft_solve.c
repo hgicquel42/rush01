@@ -1,7 +1,5 @@
+#include <stdlib.h>
 #include "ft.h"
-
-// REMOVE
-#include <stdio.h>
 
 int	ft_same(t_tab *tab, int x, int y)
 {
@@ -54,11 +52,7 @@ int	ft_solve(t_tab *tab, int n)
 	int	t;
 
 	if (n == tab->size * tab->size)
-	{
-		printf("found solution\n");
 		return (1);
-	}
-		
 	i = 0;
 	x = n % tab->size;
 	y = n / tab->size;
@@ -75,4 +69,18 @@ int	ft_solve(t_tab *tab, int n)
 		i++;
 	}
 	return (0);
+}
+
+void	ft_free(t_tab *tab)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+		free(tab->outer[i++]);
+	free(tab->outer);
+	i = 0;
+	while (i < tab->size)
+		free(tab->inner[i++]);
+	free(tab->inner);
 }

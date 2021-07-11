@@ -13,6 +13,12 @@ typedef struct s_tab
 	int	size;
 }	t_tab;
 
+typedef struct s_pos
+{
+	int	x;
+	int	y;
+}	t_pos;
+
 void	ft_putchar(char	c);
 
 void	ft_putnbr(int n);
@@ -25,9 +31,13 @@ void	ft_puttab(t_tab *tab);
 
 int		ft_split(char *str, t_tab *tab);
 
+int		*ft_get_pos(t_tab *tab, int face, int index, int i);
+
 int		ft_fill(t_tab *tab);
 
 int		ft_solve(t_tab *tab, int x);
+
+void	ft_free(t_tab *tab);
 
 int		ft_count_y_upward(t_tab *tab, int y);
 

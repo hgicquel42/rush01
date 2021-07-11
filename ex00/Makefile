@@ -3,7 +3,7 @@ NAME = rush-01
 all: ${NAME}
 
 ${NAME}:
-	cc *.c -o ${NAME}
+	cc -Wall -Wextra -Werror -o ${NAME} *.c
 
 clean:
 	rm ${NAME}

@@ -22,7 +22,7 @@ void	ft_puttab(t_tab *tab)
 {
 	int	x;
 	int	y;
-	
+
 	y = 0;
 	while (y < tab->size)
 	{
